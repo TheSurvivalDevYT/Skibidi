@@ -31,5 +31,35 @@ async def yeet(interaction: discord.Interaction, user: discord.Member):
         return
     gif = random.choice(yeet_gifs)
     await interaction.response.send_message(f"**{interaction.user.display_name} yeeted {user.display_name}!**\n{gif}")
+@bot.tree.command(
+    name="pretend",
+    description="Pretend to be another user!"
+)
+async def pretend(
+    interaction: discord.Interaction,
+    user: discord.Member,         # the user to impersonate
+    message: str                  # the message you want to say
+):
+    # Restrict to only you
+    if interaction.user.id != YOUR_USER_ID:
+        await interaction.response.send_message(
+            "🚫 You can't use this.", ephemeral=True
+        )
+        return
 
+    # Change your nickname in this guild
+    try:
+        await interaction.guild.get_member(interaction.user.id).edit(
+            nick=user.display_name
+        )
+    except discord.Forbidden:
+        await interaction.response.send_message(
+            "⚠️ I don't have permission to change nicknames here.",
+            ephemeral=True
+        )
+        return
+
+    # Send the pretend message, prefixed by the impersonated name
+    content = f"**{user.display_name}:** {message}"
+    await interaction.response.send_message(content)
 bot.run(TOKEN)
