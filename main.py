@@ -9,10 +9,10 @@ TOKEN = os.environ["DISCORD_TOKEN"]
 bot.run(TOKEN)
 
 yeet_gifs = [
-    "https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif",
-    "https://media.giphy.com/media/l0MYKDrQK1a6f6t3S/giphy.gif",
-    "https://media.giphy.com/media/f9k1tV7HyORcngKF8v/giphy.gif",
-    "https://media.giphy.com/media/j0kQWLN2b2oeM/giphy.gif"
+    "https://tenor.com/view/yeet-lion-king-simba-rafiki-throw-gif-16194362",
+    "https://tenor.com/view/camsey-snoopy-flying-fly-peanuts-clouds-house-gif-21093444",
+    "https://tenor.com/view/fly-human-fly-float-human-airplane-meme-gif-5277954545468410794",
+    "https://tenor.com/view/yeet-naruto-sakura-yeetnaruto-gif-21167415"
 ]
 
 intents = discord.Intents.default()
